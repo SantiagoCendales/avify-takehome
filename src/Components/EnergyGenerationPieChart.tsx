@@ -40,7 +40,7 @@ export const EnergyGenerationPieChart: React.FC<EnergyGenerationPieChartProps> =
     ],
   }
   return (
-    <div style={{ diplay: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0 300px' }}>
+    <div className="chart-container">
       <Pie data={data} />
     </div>
   )
