@@ -9,7 +9,7 @@ export const options: ChartOptions<'bar'> = {
     },
     title: {
       display: true,
-      text: 'Energy generation in UK',
+      text: 'Generación de energía por tipo',
     },
   },
 };
