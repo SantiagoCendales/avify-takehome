@@ -3,6 +3,8 @@ import { IFuelGenerationData } from '../types';
 import { getEnergyColors } from '../Utils/generateChartColors';
 import { options } from '../Utils/chartOptions'
 
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,7 +22,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
 
 interface EnergyGenerationChartProps {

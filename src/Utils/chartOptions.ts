@@ -11,5 +11,17 @@ export const options: ChartOptions<'bar'> = {
       display: true,
       text: 'Generación de energía en el Reino Unido',
     },
+    datalabels: {
+      anchor: 'end',
+      align: 'end',
+      formatter: (value: number) => {
+        return value + '%';
+      },
+      font: {
+        weight: 'bold',
+        size: 16,
+      },
+      color: '#000'
+    }
   },
 };
