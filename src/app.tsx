@@ -3,8 +3,7 @@ import { EnergyGeneration } from './Components/EnergyGeneration';
 
 export const App = () => {
     return (
-        <div>
-            <h1>UK Energy Mix!</h1>
+        <div className="container">
             <EnergyGeneration />
         </div>
     );
