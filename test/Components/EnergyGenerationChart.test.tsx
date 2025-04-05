@@ -15,7 +15,7 @@ jest.mock('../../src/Utils/generateChartColors', () => ({
   getEnergyColors: jest.fn(() => ['#111111']),
 }));
 
-jest.mock('../../src/Utils/chartOptions', () => ({
+jest.mock('../../src/Utils/chartBarOptions', () => ({
   options: {},
 }));
 
