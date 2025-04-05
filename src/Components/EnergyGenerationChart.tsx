@@ -1,7 +1,7 @@
 import React from 'react'
 import { IFuelGenerationData } from '../types';
 import { getEnergyColors } from '../Utils/generateChartColors';
-import { options } from '../Utils/chartOptions'
+import { barChartOptions } from '../Utils/chartBarOptions'
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -50,7 +50,7 @@ export const EnergyGenerationChart: React.FC<EnergyGenerationChartProps> = ({
   }
   return (
     <>
-      <Bar options={options} data={data} />
+      <Bar options={barChartOptions} data={data} />
     </>
   )
 }

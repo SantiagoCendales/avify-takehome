@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { IFuelGenerationData } from '../types';
 import { getEnergyColors } from '../Utils/generateChartColors';
+import { pieChartOptions } from '../Utils/chartPieOptions';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -41,7 +42,7 @@ export const EnergyGenerationPieChart: React.FC<EnergyGenerationPieChartProps> =
   }
   return (
     <div className="chart-container">
-      <Pie data={data} />
+      <Pie data={data} options={pieChartOptions} />
     </div>
   )
 }
