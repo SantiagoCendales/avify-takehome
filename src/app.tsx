@@ -1,7 +1,11 @@
 import React from 'react';
+import { EnergyGeneration } from './Components/EnergyGeneration';
 
-const App = () => <h1>UK Energy Mix</h1>;
-
-export {
-    App
+export const App = () => {
+    return (
+        <div>
+            <h1>UK Energy Mix!</h1>
+            <EnergyGeneration />
+        </div>
+    );
 }
