@@ -37,8 +37,8 @@ export const EnergyGeneration = () => {
       </div>
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '50px' }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-          <button onClick={() => setSelectedChart('pie')}>Pie Chart</button>
-          <button onClick={() => setSelectedChart('bar')}>Bar Chart</button>
+          <button onClick={() => setSelectedChart('pie')}>Gráfico circular</button>
+          <button onClick={() => setSelectedChart('bar')}>Gráfico de barras</button>
         </div>
         <div style={{ width: '100%', height: '100%' }}>
           {energyGenerationData && chartsComponents[selectedChart]}
