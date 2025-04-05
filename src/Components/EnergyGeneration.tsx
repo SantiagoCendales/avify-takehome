@@ -2,30 +2,19 @@ import React, {useEffect, useState} from 'react';
 import { fetchEnergyGenerationData } from '../Api/fetchEnergyGeneration';
 import { IFuelGenerationData } from '../types';
 import { EnergyGenerationChart } from './EnergyGenerationChart';
-
-// const colors = [
-//   '#8BC34A', // biomass
-//   '#616161', // coal
-//   '#FF9800', // imports
-//   '#FF5722', // gas
-//   '#9C27B0', // nuclear
-//   '#607D8B', // other
-//   '#03A9F4', // hydro
-//   '#FFC107', // solar
-//   '#00BCD4', // wind
-// ];
-
-const labels = [];
+import { EnergyGenerationPieChart } from './EnergyGenerationPieChart';
 
 export const data = {
-  labels,
+  labels: [],
   datasets: [],
 };
+
+type ChartType = 'bar' | 'pie';
 
 export const EnergyGeneration = () => {
 
   const [energyGenerationData, setEnergyGenerationData] = useState<IFuelGenerationData>();
-
+  const [ selectedChart, setSelectedChart ] = useState<ChartType>('bar');
   useEffect(() => {
     fetchEnergyGenerationData().then((data) => {
       setEnergyGenerationData(data)
@@ -35,16 +24,25 @@ export const EnergyGeneration = () => {
     );
   }, []);
 
+  const chartsComponents = {
+    bar: <EnergyGenerationChart energyGenerationData={energyGenerationData} />,
+    pie: <EnergyGenerationPieChart energyGenerationData={energyGenerationData} />,
+  };
+
   return (
-    <div>
-      <h1>Energy Generation</h1>
-      <p>This is the Energy Generation component.</p>
-      <div>
-        {
-          energyGenerationData
-          ? <EnergyGenerationChart energyGenerationData={energyGenerationData} />
-          : <p>No hay data</p>
-        }
+    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
+        <h1>Energy Generation</h1>
+        <p className="">Aquí podrás encontrar datos sobre los tipos de generación de energía en el Reino Unido</p>
+      </div>
+      <div style={{ width: '100%', height: '100%' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+          <button onClick={() => setSelectedChart('pie')}>Pie Chart</button>
+          <button onClick={() => setSelectedChart('bar')}>Bar Chart</button>
+        </div>
+        <div style={{ width: '100%', height: '100%' }}>
+          {energyGenerationData && chartsComponents[selectedChart]}
+        </div>
       </div>
     </div>
   );
